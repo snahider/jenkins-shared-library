@@ -1,4 +1,4 @@
-def call(Map body) {
+def call(body) {
 
     def pipelineParams= [:]
     body.resolveStrategy = Closure.DELEGATE_FIRST
