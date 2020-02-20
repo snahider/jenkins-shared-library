@@ -11,12 +11,9 @@ def call(body) {
     body.resolveStrategy = Closure.DELEGATE_FIRST
     body.delegate = pipelineParams
     body()
-    echo 'Parameters Pipeline Configuration'
-    echo "$pipelineParams"
-
+    echo "Parameters Pipeline Configuration\n$pipelineParams"
     def mergedConfig=pipelineConfig << pipelineParams
-    echo 'Merged Pipeline Configuration'
-    echo "$mergedConfig"
+    echo "Merged Pipeline Configuration\n$mergedConfig"
 
     pipeline {
         agent any
