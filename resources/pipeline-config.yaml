@@ -1,0 +1,6 @@
+gitlabConnection: 'gitlabInternalCE'
+gitCredentialsId:  'jenkinsci_gitlab'
+nodeToolName: 'Node8.15'
+sonarScannerToolName:  'SonarQubeScanner'
+sonarCredentialsId:  'jenkins_sonar_internal'
+sonarInstallationName:  'SonarQubeServerVida'
