@@ -11,7 +11,12 @@ def call(body) {
     body.resolveStrategy = Closure.DELEGATE_FIRST
     body.delegate = pipelineParams
     body()
-    pipelineConfig << pipelineParams
+    echo 'Parameters Pipeline Configuration'
+    echo "$pipelineParams"
+
+    def mergedConfig=pipelineConfig << pipelineParams
+    echo 'Merged Pipeline Configuration'
+    echo "$mergedConfig"
 
     pipeline {
         agent any
@@ -26,7 +31,7 @@ def call(body) {
                 steps {
                     //gitlabCommitStatus('Checkout'){
                         //gitCheckoutWithMerge (pipelineParams.gitUrl)
-                        git pipelineParams.gitUrl
+                        git mergedConfig.gitUrl
                     //}
                 }
             }
@@ -34,7 +39,7 @@ def call(body) {
             stage('Install Dependencies') {
                 steps {
                     //gitlabCommitStatus('Install Dependencies'){
-                        npmInstall(pipelineConfig.nodeToolName)
+                        npmInstall(mergedConfig.nodeToolName)
                     //}
                 }
             }

@@ -1,8 +1,10 @@
 def call(){
     def configFileName = 'pipeline-config.yaml'
-    def config = libraryResource configFileName
+    def repositoryConfig = libraryResource configFileName
     //writeFile file: "${WORKSPACE}/${configFileName}", text: text
+    echo 'Repository Pipeline Configuration'
+    echo "$repositoryConfig"
 
-    Map pipelineCfg = readYaml(text: config)
+    Map pipelineCfg = readYaml(text: repositoryConfig)
     return pipelineCfg
 }
