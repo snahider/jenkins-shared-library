@@ -18,7 +18,7 @@ def call(body) {
     echo "Merged Pipeline Configuration\n$mergedConfig"
 
     pipeline {
-        agent anyl
+        agent any
 
         // options {
         //     gitLabConnection(pipelineConfig.gitlabInternalCE)
