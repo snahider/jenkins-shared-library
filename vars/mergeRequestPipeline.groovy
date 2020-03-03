@@ -1,12 +1,14 @@
 /*
-mergeRequestPipeline {
-    gitUrl = 'https://github.com/snahider/react-example.git'
-}
+Cómo usar el pipeline base:
+
+    mergeRequestPipeline {
+        gitUrl = 'https://github.com/snahider/react-example.git'
+    }
 */
 
 def call(body) {
     
-    def pipelineConfig = pipelineConfig()
+    def pipelineConfig = pipelineConfigYaml()
     def pipelineParams= [:]
     body.resolveStrategy = Closure.DELEGATE_FIRST
     body.delegate = pipelineParams

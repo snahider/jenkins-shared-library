@@ -1,5 +1,5 @@
 def call(def gitUrl){
-    def pipelineConfig = pipelineConfig()
+    def pipelineConfig = pipelineConfigYaml()
 
     checkout changelog: true, scm: [
         $class: 'GitSCM',
