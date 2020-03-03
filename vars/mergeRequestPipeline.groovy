@@ -46,7 +46,7 @@ def call(body) {
             stage('Secret Detection') {
                 steps {
                     gitlabCommitStatus('Secret Detection'){
-                        secretDetection()
+                        //secretDetection()
                         echo 'secretDetection'
                     }
                 }
