@@ -18,7 +18,7 @@ def call(body) {
     echo "Merged Pipeline Configuration\n$mergedConfig"
 
     pipeline {
-        agent any
+        agent anyl
 
         // options {
         //     gitLabConnection(pipelineConfig.gitlabInternalCE)
@@ -29,8 +29,8 @@ def call(body) {
             stage('Checkout') {
                 steps {
                     //gitlabCommitStatus('Checkout'){
-                        //gitCheckoutWithMerge (pipelineParams.gitUrl)
-                        git mergedConfig.gitUrl
+                        gitCheckoutWithMerge (pipelineParams.gitUrl)
+                        //git mergedConfig.gitUrl
                     //}
                 }
             }
